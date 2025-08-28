@@ -1,0 +1,31 @@
+ <div class="flex items-center justify-center min-h-screen ">
+     <div class="w-full max-w-sm bg-white shadow-lg rounded-2xl p-8">
+         <h1 class="text-2xl font-bold text-center text-gray-700 mb-6">Login</h1>
+         
+         <form action="#" method="POST" class="space-y-5">
+        
+             <div>
+                 <label for="email" class="block text-sm font-medium text-gray-600"> Email</label>
+                 <input type="email" id="email" name="email" required [(ngModel)]="email"
+                 class="w-full mt-1 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-600"> Senha</label>
+                    <input type="password" id="senha" name="senha" required [(ngModel)]="senha"
+                    class="w-full mt-1 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <button type="submit"
+                (click)="autenticar()"
+                class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+                Entrar
+            </button>
+        </form>
+        
+        <p class="text-sm text-gray-500 text-center mt-6">
+            Não tem uma conta?
+            <a href="#" class="text-blue-600 hover:underline" routerLink="/cadastrar">Cadastre-se</a>
+        </p>
+    </div>
+</div>
