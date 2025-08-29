@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
-import { LocalStorageService } from '../local-storage.service';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../cadastrar-login/usuario.model';
+import { Logar } from '../services/logar.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-formulario-login',
@@ -14,19 +16,26 @@ import { Usuario } from '../cadastrar-login/usuario.model';
   styleUrl: './formulario-login.component.css'
 })
 export class FormularioLoginComponent {
-  local = new LocalStorageService()
-  obj:  Usuario[] = []
-  email: string = "";
-  nome: string = "";
-  senha: string = "";
+  constructor(
+    private logar: Logar,
+    private router: Router
+  ){}
 
-  autenticar(){
-  const usuario: Usuario ={
-    nome: this.nome,
-    email: this.email,
-    senha: this.senha
-  };
-    this.local.verificacaoLogin(usuario);
+  email:string = '';
+  senha:string = '';
+
+  mensagemErro: string = '';
+  
+    mensagemSucesso(){
+      if(this.logar.validarLogin(this.email,this.senha) === true){
+        console.log("Validação deu certo");
+        this.router.navigate(['/lista'])        
+      }else{
+        console.log("Email ou senha incorreto");
+        this.mensagemErro = 'Usuario ou senha incorreta!'
+        setTimeout(() => {
+          this.mensagemErro = ''
+        }, 1000)
+      }
   }
-
 }

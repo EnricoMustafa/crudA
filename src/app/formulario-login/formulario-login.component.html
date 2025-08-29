@@ -12,15 +12,19 @@
                 
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-600"> Senha</label>
-                    <input type="password" id="senha" name="senha" required [(ngModel)]="senha"
+                    <input type="password" id="senha" name="senha" [(ngModel)]="senha" required 
                     class="w-full mt-1 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                
-                <button type="submit"
-                (click)="autenticar()"
-                class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
-                Entrar
-            </button>
+                <div class=" h-1 flex items-center justify-center">
+                    <p class="text-sm text-red-600">{{mensagemErro}}</p>
+                </div>
+                <div class="bg-amber-300 flex ">
+                    <button type="submit"
+                    (click)="mensagemSucesso()"
+                    class="w-full bg-blue-600 text-white p-3 block rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
+                    Entrar
+                </button>
+            </div>
         </form>
         
         <p class="text-sm text-gray-500 text-center mt-6">
