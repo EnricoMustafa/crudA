@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../cadastrar-login/usuario.model';
 import { CadastroService } from './cadastro.service';
 
 @Injectable({

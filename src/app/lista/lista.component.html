@@ -1,13 +1,44 @@
-<header class="bg-amber-50 flex justify-center h-14">
-    <div class="flex justify-between w-4xl items-center">
-        <div>
-            <h2 class="text-4xl font-bold">Lista</h2>
+<app-header />
+
+<div class="flex justify-center mt-32">
+  <div class="w-5xl flex justify-center items-center">
+    <input
+      type="text"
+      [(ngModel)]="novaNota"
+      class="bg-white w-2xl border-y border-l p-4"
+      placeholder="Adicione anotação..."
+    />
+    <button
+      class="cursor-pointer border h-15 rounded-r-3xl bg-red-600 text-white font-bold rounded-sm p-4"
+      (click)="adicionarNota()"
+    >
+      +
+    </button>
+  </div>
+</div>
+
+<div class="flex justify-center">
+  <div class="w-screen mt-20 flex justify-center">
+    <ul class=" ">
+      <li
+        class="shadow border-gray-200 border-b w-5xl justify-between p-2 flex items-center"
+        *ngFor="let nota of notas; let i = index"
+      >
+        {{ notas }}
+        <div class="gap-2 flex">
+          <button
+            (click)="removerNota(i)"
+            class="bg-red-600 rounded-md text-white p-2 font-bold border cursor-pointer"
+          >
+            Remover
+          </button>
+          <button
+            class="bg-red-600 rounded-md text-white p-2 font-bold border cursor-pointer"
+          >
+            alterear
+          </button>
         </div>
-        <div>
-            <p></p>
-        </div>
-        <nav class="">
-            <button class="bg-red-500 text-white font-bold p-4 shadow" routerLink="/">Sair</button>
-        </nav>
-    </div>
-</header>
+      </li>
+    </ul>
+  </div>
+</div>
